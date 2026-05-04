@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Card, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { StatusDot } from '@/components/shared/status-dot'
 import { Plus, Folder, Zap } from 'lucide-react'
 
-// Mock data 在后端接通前使用
 const mockProjects = [
   { id: 1, name: 'E-Commerce API', mode: 'CLUSTER' as const, gateways: 2, services: 5, status: 'ONLINE' as const },
   { id: 2, name: 'Social Platform', mode: 'EMBEDDED' as const, gateways: 1, services: 0, status: 'ONLINE' as const },
@@ -13,22 +13,22 @@ const mockProjects = [
 ]
 
 export function ProjectList() {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen bg-surface-0 p-8">
-      {/* Header */}
       <div className="mx-auto max-w-5xl">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Zap className="h-6 w-6 text-accent" />
-            <h1 className="text-xl font-semibold text-text">Projects</h1>
+            <h1 className="text-xl font-semibold text-text">{t('nav.projects')}</h1>
           </div>
           <Button size="sm">
             <Plus className="h-4 w-4" />
-            New Project
+            {t('project.newProject')}
           </Button>
         </div>
 
-        {/* Project grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {mockProjects.map((project) => (
             <Link key={project.id} to={`/${project.id}`}>
@@ -43,8 +43,8 @@ export function ProjectList() {
                 <CardTitle>{project.name}</CardTitle>
                 <CardDescription>
                   {project.mode === 'CLUSTER'
-                    ? `${project.gateways} gateways, ${project.services} services`
-                    : 'Embedded mode'}
+                    ? t('project.gatewaysAndServices', { gateways: project.gateways, services: project.services })
+                    : t('project.embeddedMode')}
                 </CardDescription>
 
                 <div className="mt-4 flex items-center gap-2">

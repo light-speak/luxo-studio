@@ -1,12 +1,14 @@
+import { useTranslation } from 'react-i18next'
 import { Card, CardTitle } from '@/components/ui/card'
 import { BarChart3, Clock, AlertTriangle } from 'lucide-react'
 
 export function MetricsDashboard() {
+  const { t } = useTranslation()
+
   return (
     <div>
-      <h1 className="mb-6 text-lg font-semibold text-text">Overview</h1>
+      <h1 className="mb-6 text-lg font-semibold text-text">{t('metrics.title')}</h1>
 
-      {/* Summary cards */}
       <div className="mb-6 grid grid-cols-3 gap-4">
         <Card>
           <div className="flex items-center gap-3">
@@ -15,7 +17,7 @@ export function MetricsDashboard() {
             </div>
             <div>
               <p className="text-2xl font-bold text-text">12.4K</p>
-              <p className="text-xs text-text-muted">Requests / min</p>
+              <p className="text-xs text-text-muted">{t('metrics.requestsPerMin')}</p>
             </div>
           </div>
         </Card>
@@ -26,7 +28,7 @@ export function MetricsDashboard() {
             </div>
             <div>
               <p className="text-2xl font-bold text-text">45ms</p>
-              <p className="text-xs text-text-muted">P95 Latency</p>
+              <p className="text-xs text-text-muted">{t('metrics.p95Latency')}</p>
             </div>
           </div>
         </Card>
@@ -37,19 +39,18 @@ export function MetricsDashboard() {
             </div>
             <div>
               <p className="text-2xl font-bold text-text">0.3%</p>
-              <p className="text-xs text-text-muted">Error Rate</p>
+              <p className="text-xs text-text-muted">{t('metrics.errorRate')}</p>
             </div>
           </div>
         </Card>
       </div>
 
-      {/* Charts placeholder */}
       <div className="grid grid-cols-2 gap-4">
-        <Card className="h-64 flex items-center justify-center">
-          <CardTitle className="text-text-muted">Request Rate Chart (coming soon)</CardTitle>
+        <Card className="flex h-64 items-center justify-center">
+          <CardTitle className="text-text-muted">{t('metrics.requestRateChart')} ({t('common.comingSoon')})</CardTitle>
         </Card>
-        <Card className="h-64 flex items-center justify-center">
-          <CardTitle className="text-text-muted">Latency Chart (coming soon)</CardTitle>
+        <Card className="flex h-64 items-center justify-center">
+          <CardTitle className="text-text-muted">{t('metrics.latencyChart')} ({t('common.comingSoon')})</CardTitle>
         </Card>
       </div>
     </div>

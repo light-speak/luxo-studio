@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -7,6 +8,7 @@ import { Card } from '@/components/ui/card'
 import { Zap } from 'lucide-react'
 
 export function Register() {
+  const { t } = useTranslation()
   const { register } = useAuth()
   const navigate = useNavigate()
   const [name, setName] = useState('')
@@ -24,7 +26,7 @@ export function Register() {
       await register(name, email, password, teamSlug)
       navigate('/')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Registration failed')
+      setError(err instanceof Error ? err.message : t('auth.registerFailed'))
     } finally {
       setLoading(false)
     }
@@ -37,34 +39,34 @@ export function Register() {
           <Zap className="h-6 w-6 text-accent" />
         </div>
         <div className="text-center">
-          <h1 className="text-lg font-semibold text-text">Create account</h1>
-          <p className="mt-1 text-sm text-text-muted">Get started with Luxo Studio</p>
+          <h1 className="text-lg font-semibold text-text">{t('auth.createAccount')}</h1>
+          <p className="mt-1 text-sm text-text-muted">{t('auth.getStarted')}</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Input
           id="name"
-          label="Name"
-          placeholder="Your name"
+          label={t('auth.name')}
+          placeholder={t('auth.namePlaceholder')}
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
         <Input
           id="email"
-          label="Email"
+          label={t('auth.email')}
           type="email"
-          placeholder="you@example.com"
+          placeholder={t('auth.emailPlaceholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <Input
           id="password"
-          label="Password"
+          label={t('auth.password')}
           type="password"
-          placeholder="Min 8 characters"
+          placeholder={t('auth.passwordMinLength')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -72,8 +74,8 @@ export function Register() {
         />
         <Input
           id="team"
-          label="Team slug"
-          placeholder="my-team"
+          label={t('auth.teamSlug')}
+          placeholder={t('auth.teamSlugPlaceholder')}
           value={teamSlug}
           onChange={(e) => setTeamSlug(e.target.value)}
           required
@@ -84,14 +86,14 @@ export function Register() {
         )}
 
         <Button type="submit" disabled={loading} className="mt-2 w-full">
-          {loading ? 'Creating...' : 'Create account'}
+          {loading ? t('auth.creating') : t('auth.createAccount')}
         </Button>
       </form>
 
       <p className="mt-6 text-center text-xs text-text-muted">
-        Already have an account?{' '}
+        {t('auth.hasAccount')}{' '}
         <Link to="/login" className="text-accent hover:underline">
-          Sign in
+          {t('auth.signIn')}
         </Link>
       </p>
     </Card>

@@ -1,0 +1,99 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创建",
+    "search": "搜索",
+    "confirm": "确认",
+    "back": "返回",
+    "comingSoon": "即将推出"
+  },
+  "auth": {
+    "welcomeBack": "欢迎回来",
+    "signInTo": "登录 Luxo Studio",
+    "signIn": "登录",
+    "signingIn": "登录中...",
+    "createAccount": "创建账号",
+    "getStarted": "开始使用 Luxo Studio",
+    "creating": "创建中...",
+    "email": "邮箱",
+    "emailPlaceholder": "you@example.com",
+    "password": "密码",
+    "passwordPlaceholder": "输入密码",
+    "passwordMinLength": "至少 8 位",
+    "name": "姓名",
+    "namePlaceholder": "你的名字",
+    "teamSlug": "团队标识",
+    "teamSlugPlaceholder": "my-team",
+    "noAccount": "还没有账号？",
+    "createOne": "去注册",
+    "hasAccount": "已有账号？",
+    "loginFailed": "登录失败",
+    "registerFailed": "注册失败"
+  },
+  "nav": {
+    "projects": "项目",
+    "overview": "概览",
+    "schema": "Schema",
+    "playground": "调试台",
+    "traces": "追踪",
+    "topology": "拓扑图",
+    "cluster": "集群",
+    "settings": "设置",
+    "collapse": "收起",
+    "logout": "退出"
+  },
+  "project": {
+    "newProject": "新建项目",
+    "embeddedMode": "单服务模式",
+    "gateways": "{{count}} 个网关",
+    "services": "{{count}} 个服务",
+    "gatewaysAndServices": "{{gateways}} 个网关，{{services}} 个服务"
+  },
+  "metrics": {
+    "title": "概览",
+    "requestsPerMin": "请求数 / 分钟",
+    "p95Latency": "P95 延迟",
+    "errorRate": "错误率",
+    "requestRateChart": "请求速率图表",
+    "latencyChart": "延迟图表"
+  },
+  "schema": {
+    "title": "Schema 浏览器",
+    "searchPlaceholder": "搜索 Schema...",
+    "models": "模型",
+    "apis": "API",
+    "enums": "枚举",
+    "fields": "{{count}} 个字段",
+    "values": "{{count}} 个值",
+    "field": "字段",
+    "type": "类型",
+    "directives": "注解",
+    "parameter": "参数",
+    "signature": "签名",
+    "module": "模块"
+  },
+  "playground": {
+    "title": "API 调试台",
+    "description": "构造请求、选择字段、执行并查看响应"
+  },
+  "traces": {
+    "title": "分布式追踪",
+    "description": "查看请求追踪，包含 SQL、RPC、DataLoader 耗时"
+  },
+  "topology": {
+    "title": "服务拓扑",
+    "description": "网关 → 服务的延迟和 RPM 可视化"
+  },
+  "cluster": {
+    "title": "集群管理",
+    "description": "监控网关和服务节点状态"
+  },
+  "settings": {
+    "title": "设置",
+    "description": "项目配置、团队成员管理"
+  }
+}

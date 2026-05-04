@@ -1,4 +1,5 @@
 import { NavLink, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/cn'
 import {
   BarChart3,
@@ -14,18 +15,19 @@ import {
 } from 'lucide-react'
 import { useState } from 'react'
 
-const navItems = [
-  { icon: BarChart3, label: 'Overview', path: '' },
-  { icon: Database, label: 'Schema', path: '/schema' },
-  { icon: Play, label: 'Playground', path: '/playground' },
-  { icon: Activity, label: 'Traces', path: '/traces' },
-  { icon: Network, label: 'Topology', path: '/topology' },
-  { icon: Server, label: 'Cluster', path: '/cluster' },
-]
-
 export function Sidebar() {
+  const { t } = useTranslation()
   const { projectId } = useParams()
   const [collapsed, setCollapsed] = useState(false)
+
+  const navItems = [
+    { icon: BarChart3, label: t('nav.overview'), path: '' },
+    { icon: Database, label: t('nav.schema'), path: '/schema' },
+    { icon: Play, label: t('nav.playground'), path: '/playground' },
+    { icon: Activity, label: t('nav.traces'), path: '/traces' },
+    { icon: Network, label: t('nav.topology'), path: '/topology' },
+    { icon: Server, label: t('nav.cluster'), path: '/cluster' },
+  ]
 
   return (
     <aside
@@ -34,7 +36,6 @@ export function Sidebar() {
         collapsed ? 'w-16' : 'w-60',
       )}
     >
-      {/* Logo */}
       <div className="flex h-14 items-center gap-2.5 border-b border-border px-4">
         <Zap className="h-5 w-5 text-accent shrink-0" />
         {!collapsed && (
@@ -42,7 +43,6 @@ export function Sidebar() {
         )}
       </div>
 
-      {/* Nav items */}
       <nav className="flex-1 overflow-y-auto px-2 py-3">
         <div className="flex flex-col gap-0.5">
           {navItems.map((item) => (
@@ -67,7 +67,6 @@ export function Sidebar() {
         </div>
       </nav>
 
-      {/* Bottom: Settings + Collapse */}
       <div className="border-t border-border px-2 py-2">
         <NavLink
           to={`/${projectId}/settings`}
@@ -82,7 +81,7 @@ export function Sidebar() {
           }
         >
           <Settings className="h-4 w-4 shrink-0" />
-          {!collapsed && <span>Settings</span>}
+          {!collapsed && <span>{t('nav.settings')}</span>}
         </NavLink>
 
         <button
@@ -94,7 +93,7 @@ export function Sidebar() {
           ) : (
             <>
               <PanelLeftClose className="h-4 w-4 shrink-0" />
-              <span>Collapse</span>
+              <span>{t('nav.collapse')}</span>
             </>
           )}
         </button>

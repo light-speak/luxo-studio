@@ -1,15 +1,17 @@
+import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui/card'
 import { Play } from 'lucide-react'
 
 export function Playground() {
+  const { t } = useTranslation()
   return (
     <div>
-      <h1 className="mb-6 text-lg font-semibold text-text">API Playground</h1>
+      <h1 className="mb-6 text-lg font-semibold text-text">{t('playground.title')}</h1>
       <Card className="flex h-96 items-center justify-center">
         <div className="flex flex-col items-center gap-3 text-text-muted">
           <Play className="h-10 w-10" />
-          <p className="text-sm">Playground coming soon</p>
-          <p className="text-xs">Construct requests, select fields, execute against target service</p>
+          <p className="text-sm">{t('common.comingSoon')}</p>
+          <p className="text-xs">{t('playground.description')}</p>
         </div>
       </Card>
     </div>

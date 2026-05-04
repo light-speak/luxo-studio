@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -7,6 +8,7 @@ import { Card } from '@/components/ui/card'
 import { Zap } from 'lucide-react'
 
 export function Login() {
+  const { t } = useTranslation()
   const { login } = useAuth()
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
@@ -22,7 +24,7 @@ export function Login() {
       await login(email, password)
       navigate('/')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed')
+      setError(err instanceof Error ? err.message : t('auth.loginFailed'))
     } finally {
       setLoading(false)
     }
@@ -35,26 +37,26 @@ export function Login() {
           <Zap className="h-6 w-6 text-accent" />
         </div>
         <div className="text-center">
-          <h1 className="text-lg font-semibold text-text">Welcome back</h1>
-          <p className="mt-1 text-sm text-text-muted">Sign in to Luxo Studio</p>
+          <h1 className="text-lg font-semibold text-text">{t('auth.welcomeBack')}</h1>
+          <p className="mt-1 text-sm text-text-muted">{t('auth.signInTo')}</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Input
           id="email"
-          label="Email"
+          label={t('auth.email')}
           type="email"
-          placeholder="you@example.com"
+          placeholder={t('auth.emailPlaceholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <Input
           id="password"
-          label="Password"
+          label={t('auth.password')}
           type="password"
-          placeholder="Enter password"
+          placeholder={t('auth.passwordPlaceholder')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -65,14 +67,14 @@ export function Login() {
         )}
 
         <Button type="submit" disabled={loading} className="mt-2 w-full">
-          {loading ? 'Signing in...' : 'Sign in'}
+          {loading ? t('auth.signingIn') : t('auth.signIn')}
         </Button>
       </form>
 
       <p className="mt-6 text-center text-xs text-text-muted">
-        Don't have an account?{' '}
+        {t('auth.noAccount')}{' '}
         <Link to="/register" className="text-accent hover:underline">
-          Create one
+          {t('auth.createOne')}
         </Link>
       </p>
     </Card>

@@ -1,0 +1,99 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "create": "作成",
+    "search": "検索",
+    "confirm": "確認",
+    "back": "戻る",
+    "comingSoon": "近日公開"
+  },
+  "auth": {
+    "welcomeBack": "おかえりなさい",
+    "signInTo": "Luxo Studio にログイン",
+    "signIn": "ログイン",
+    "signingIn": "ログイン中...",
+    "createAccount": "アカウント作成",
+    "getStarted": "Luxo Studio を始める",
+    "creating": "作成中...",
+    "email": "メールアドレス",
+    "emailPlaceholder": "you@example.com",
+    "password": "パスワード",
+    "passwordPlaceholder": "パスワードを入力",
+    "passwordMinLength": "8文字以上",
+    "name": "名前",
+    "namePlaceholder": "あなたの名前",
+    "teamSlug": "チームスラグ",
+    "teamSlugPlaceholder": "my-team",
+    "noAccount": "アカウントをお持ちでない方",
+    "createOne": "新規登録",
+    "hasAccount": "すでにアカウントをお持ちの方",
+    "loginFailed": "ログインに失敗しました",
+    "registerFailed": "登録に失敗しました"
+  },
+  "nav": {
+    "projects": "プロジェクト",
+    "overview": "概要",
+    "schema": "スキーマ",
+    "playground": "プレイグラウンド",
+    "traces": "トレース",
+    "topology": "トポロジー",
+    "cluster": "クラスター",
+    "settings": "設定",
+    "collapse": "折りたたむ",
+    "logout": "ログアウト"
+  },
+  "project": {
+    "newProject": "新規プロジェクト",
+    "embeddedMode": "組み込みモード",
+    "gateways": "ゲートウェイ {{count}} 個",
+    "services": "サービス {{count}} 個",
+    "gatewaysAndServices": "ゲートウェイ {{gateways}} 個、サービス {{services}} 個"
+  },
+  "metrics": {
+    "title": "概要",
+    "requestsPerMin": "リクエスト数 / 分",
+    "p95Latency": "P95 レイテンシ",
+    "errorRate": "エラー率",
+    "requestRateChart": "リクエストレートチャート",
+    "latencyChart": "レイテンシチャート"
+  },
+  "schema": {
+    "title": "スキーマブラウザ",
+    "searchPlaceholder": "スキーマを検索...",
+    "models": "モデル",
+    "apis": "API",
+    "enums": "列挙型",
+    "fields": "フィールド {{count}} 個",
+    "values": "値 {{count}} 個",
+    "field": "フィールド",
+    "type": "型",
+    "directives": "ディレクティブ",
+    "parameter": "パラメータ",
+    "signature": "シグネチャ",
+    "module": "モジュール"
+  },
+  "playground": {
+    "title": "API プレイグラウンド",
+    "description": "リクエストを構築し、フィールドを選択して実行"
+  },
+  "traces": {
+    "title": "分散トレーシング",
+    "description": "SQL、RPC、DataLoader のタイミングを含むリクエストトレース"
+  },
+  "topology": {
+    "title": "サービストポロジー",
+    "description": "ゲートウェイ → サービスのレイテンシと RPM の可視化"
+  },
+  "cluster": {
+    "title": "クラスター管理",
+    "description": "ゲートウェイとサービスノードのステータスを監視"
+  },
+  "settings": {
+    "title": "設定",
+    "description": "プロジェクト設定、チームメンバー管理"
+  }
+}

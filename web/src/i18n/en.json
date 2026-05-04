@@ -1,0 +1,99 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "confirm": "Confirm",
+    "back": "Back",
+    "comingSoon": "Coming soon"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "signInTo": "Sign in to Luxo Studio",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "createAccount": "Create account",
+    "getStarted": "Get started with Luxo Studio",
+    "creating": "Creating...",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter password",
+    "passwordMinLength": "Min 8 characters",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "teamSlug": "Team slug",
+    "teamSlugPlaceholder": "my-team",
+    "noAccount": "Don't have an account?",
+    "createOne": "Create one",
+    "hasAccount": "Already have an account?",
+    "loginFailed": "Login failed",
+    "registerFailed": "Registration failed"
+  },
+  "nav": {
+    "projects": "Projects",
+    "overview": "Overview",
+    "schema": "Schema",
+    "playground": "Playground",
+    "traces": "Traces",
+    "topology": "Topology",
+    "cluster": "Cluster",
+    "settings": "Settings",
+    "collapse": "Collapse",
+    "logout": "Logout"
+  },
+  "project": {
+    "newProject": "New Project",
+    "embeddedMode": "Embedded mode",
+    "gateways": "{{count}} gateways",
+    "services": "{{count}} services",
+    "gatewaysAndServices": "{{gateways}} gateways, {{services}} services"
+  },
+  "metrics": {
+    "title": "Overview",
+    "requestsPerMin": "Requests / min",
+    "p95Latency": "P95 Latency",
+    "errorRate": "Error Rate",
+    "requestRateChart": "Request Rate Chart",
+    "latencyChart": "Latency Chart"
+  },
+  "schema": {
+    "title": "Schema Browser",
+    "searchPlaceholder": "Search schema...",
+    "models": "Models",
+    "apis": "APIs",
+    "enums": "Enums",
+    "fields": "{{count}} fields",
+    "values": "{{count}} values",
+    "field": "Field",
+    "type": "Type",
+    "directives": "Directives",
+    "parameter": "Parameter",
+    "signature": "Signature",
+    "module": "module"
+  },
+  "playground": {
+    "title": "API Playground",
+    "description": "Construct requests, select fields, execute against target service"
+  },
+  "traces": {
+    "title": "Traces",
+    "description": "View request traces with SQL, RPC, DataLoader timing"
+  },
+  "topology": {
+    "title": "Service Topology",
+    "description": "Gateway → Service latency and RPM visualization"
+  },
+  "cluster": {
+    "title": "Cluster",
+    "description": "Monitor gateway and service node status"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Configure project, manage team members"
+  }
+}

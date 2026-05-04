@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { RootLayout } from '@/components/layout/root-layout'
 import { DashboardLayout } from '@/components/layout/dashboard-layout'
+import { AuthGuard } from '@/components/layout/auth-guard'
 import { Login } from '@/pages/auth/login'
 import { Register } from '@/pages/auth/register'
 import { ProjectList } from '@/pages/projects/project-list'
@@ -13,6 +14,7 @@ import { ClusterStatus } from '@/pages/cluster/cluster-status'
 import { SettingsPage } from '@/pages/settings/settings'
 
 export const router = createBrowserRouter([
+  // Public
   {
     element: <RootLayout />,
     children: [
@@ -20,25 +22,25 @@ export const router = createBrowserRouter([
       { path: '/register', element: <Register /> },
     ],
   },
+  // Protected
   {
-    path: '/',
-    element: <ProjectList />,
-  },
-  {
-    path: '/:projectId',
-    element: <DashboardLayout />,
+    element: <AuthGuard />,
     children: [
-      { index: true, element: <MetricsDashboard /> },
-      { path: 'schema', element: <SchemaBrowser /> },
-      { path: 'playground', element: <Playground /> },
-      { path: 'traces', element: <TraceList /> },
-      { path: 'topology', element: <ServiceTopology /> },
-      { path: 'cluster', element: <ClusterStatus /> },
-      { path: 'settings', element: <SettingsPage /> },
+      { path: '/', element: <ProjectList /> },
+      {
+        path: '/:projectId',
+        element: <DashboardLayout />,
+        children: [
+          { index: true, element: <MetricsDashboard /> },
+          { path: 'schema', element: <SchemaBrowser /> },
+          { path: 'playground', element: <Playground /> },
+          { path: 'traces', element: <TraceList /> },
+          { path: 'topology', element: <ServiceTopology /> },
+          { path: 'cluster', element: <ClusterStatus /> },
+          { path: 'settings', element: <SettingsPage /> },
+        ],
+      },
     ],
   },
-  {
-    path: '*',
-    element: <Navigate to="/" replace />,
-  },
+  { path: '*', element: <Navigate to="/" replace /> },
 ])

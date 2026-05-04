@@ -1,0 +1,99 @@
+{
+  "common": {
+    "loading": "로딩 중...",
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "편집",
+    "create": "생성",
+    "search": "검색",
+    "confirm": "확인",
+    "back": "뒤로",
+    "comingSoon": "곧 출시 예정"
+  },
+  "auth": {
+    "welcomeBack": "다시 오신 것을 환영합니다",
+    "signInTo": "Luxo Studio 로그인",
+    "signIn": "로그인",
+    "signingIn": "로그인 중...",
+    "createAccount": "계정 만들기",
+    "getStarted": "Luxo Studio 시작하기",
+    "creating": "생성 중...",
+    "email": "이메일",
+    "emailPlaceholder": "you@example.com",
+    "password": "비밀번호",
+    "passwordPlaceholder": "비밀번호 입력",
+    "passwordMinLength": "최소 8자",
+    "name": "이름",
+    "namePlaceholder": "이름을 입력하세요",
+    "teamSlug": "팀 슬러그",
+    "teamSlugPlaceholder": "my-team",
+    "noAccount": "계정이 없으신가요?",
+    "createOne": "회원가입",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "loginFailed": "로그인 실패",
+    "registerFailed": "가입 실패"
+  },
+  "nav": {
+    "projects": "프로젝트",
+    "overview": "개요",
+    "schema": "스키마",
+    "playground": "플레이그라운드",
+    "traces": "트레이스",
+    "topology": "토폴로지",
+    "cluster": "클러스터",
+    "settings": "설정",
+    "collapse": "접기",
+    "logout": "로그아웃"
+  },
+  "project": {
+    "newProject": "새 프로젝트",
+    "embeddedMode": "임베디드 모드",
+    "gateways": "게이트웨이 {{count}}개",
+    "services": "서비스 {{count}}개",
+    "gatewaysAndServices": "게이트웨이 {{gateways}}개, 서비스 {{services}}개"
+  },
+  "metrics": {
+    "title": "개요",
+    "requestsPerMin": "요청 수 / 분",
+    "p95Latency": "P95 지연 시간",
+    "errorRate": "오류율",
+    "requestRateChart": "요청 속도 차트",
+    "latencyChart": "지연 시간 차트"
+  },
+  "schema": {
+    "title": "스키마 브라우저",
+    "searchPlaceholder": "스키마 검색...",
+    "models": "모델",
+    "apis": "API",
+    "enums": "열거형",
+    "fields": "필드 {{count}}개",
+    "values": "값 {{count}}개",
+    "field": "필드",
+    "type": "타입",
+    "directives": "디렉티브",
+    "parameter": "매개변수",
+    "signature": "시그니처",
+    "module": "모듈"
+  },
+  "playground": {
+    "title": "API 플레이그라운드",
+    "description": "요청을 구성하고 필드를 선택한 후 실행"
+  },
+  "traces": {
+    "title": "분산 트레이싱",
+    "description": "SQL, RPC, DataLoader 타이밍이 포함된 요청 트레이스"
+  },
+  "topology": {
+    "title": "서비스 토폴로지",
+    "description": "게이트웨이 → 서비스 지연 시간 및 RPM 시각화"
+  },
+  "cluster": {
+    "title": "클러스터 관리",
+    "description": "게이트웨이 및 서비스 노드 상태 모니터링"
+  },
+  "settings": {
+    "title": "설정",
+    "description": "프로젝트 설정, 팀 멤버 관리"
+  }
+}
