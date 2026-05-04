@@ -1,0 +1,9 @@
+model SavedQuery @crud {
+  id:        Int @id @auto @serial
+  projectId: Int @by(Project) @filterable
+  memberId:  Int @by(Member) @filterable
+  name:      String @notBlank @varchar(200)
+  apiName:   String @filterable
+  params:    JSON?
+  select:    String?
+}

@@ -1,0 +1,50 @@
+enum DeployMode {
+  EMBEDDED
+  CLUSTER
+}
+
+enum NodeStatus {
+  ONLINE
+  OFFLINE
+  ERROR
+}
+
+model Project @crud {
+  id:                  Int @id @auto @serial
+  teamId:              Int @by(Team) @filterable
+  name:                String @notBlank @varchar(100) @filterable
+  mode:                DeployMode = DeployMode.EMBEDDED @filterable
+  traceSampleRate:     Float = 0.1
+  traceRetentionDays:  Int = 7
+  metricRetentionDays: Int = 90
+  gateways:            [Gateway]
+  services:            [ServiceNode]
+}
+
+model Gateway @crud {
+  id:         Int @id @auto @serial
+  projectId:  Int @by(Project) @filterable
+  name:       String @notBlank @varchar(100)
+  endpoint:   String @notBlank
+  introKey:   String? @hidden
+  instanceId: String @unique
+  status:     NodeStatus = NodeStatus.OFFLINE @filterable
+  version:    String?
+  uptime:     Duration?
+  memoryMB:   Float?
+  cpuPercent: Float?
+  lastPing:   DateTime?
+}
+
+model ServiceNode @crud {
+  id:         Int @id @auto @serial
+  projectId:  Int @by(Project) @filterable
+  name:       String @notBlank @varchar(100) @filterable
+  addr:       String @notBlank
+  status:     NodeStatus = NodeStatus.OFFLINE @filterable
+  version:    String?
+  uptime:     Duration?
+  memoryMB:   Float?
+  cpuPercent: Float?
+  lastPing:   DateTime?
+}

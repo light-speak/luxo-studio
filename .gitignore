@@ -1,0 +1,33 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Go
+/bin/
+vendor/
+
+# Node
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+*.vsix
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+
+# Generated
+service/*/luxo/
+luxis/
+*.gen.go
+luxo.lock
+migrations/
+
+# Build
+web/dist/
+cover.out

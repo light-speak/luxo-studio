@@ -1,0 +1,34 @@
+enum TraceStatus {
+  OK
+  ERROR
+}
+
+model Trace @crud {
+  id:            Int @id @auto @serial
+  projectId:     Int @by(Project) @filterable
+  gatewayId:     Int @by(Gateway) @filterable
+  traceId:       String @unique @filterable
+  apiName:       String @filterable
+  duration:      Float @filterable @sortable
+  status:        TraceStatus @filterable
+  statusCode:    Int
+  clientName:    String?
+  clientVersion: String?
+  timestamp:     DateTime @filterable @sortable
+  spans:         JSON
+}
+
+model MetricBucket @crud {
+  id:            Int @id @auto @serial
+  projectId:     Int @by(Project) @filterable
+  gatewayId:     Int? @by(Gateway)
+  serviceNodeId: Int? @by(ServiceNode)
+  apiName:       String @filterable
+  timestamp:     DateTime @filterable @sortable
+  totalCount:    Int
+  errCount:      Int
+  avgMs:         Float
+  p50Ms:         Float
+  p95Ms:         Float
+  p99Ms:         Float
+}

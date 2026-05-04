@@ -1,0 +1,31 @@
+error DuplicateEmail {
+  code: 409
+  message: "error.email_exists"
+}
+
+error InvalidCredentials {
+  code: 401
+  message: "error.invalid_credentials"
+}
+
+api register(name: String, email: String, password: String, teamSlug: String): Member {
+  val team = Team.where(slug: teamSlug).first()
+  team ?: throw error.NotFound
+  val exists = Member.where(email: email).exists()
+  if exists {
+    throw DuplicateEmail
+  }
+  val member = Member.create(name: name, email: email, password: password, teamId: team.id, role: MemberRole.OWNER)
+  return member
+}
+
+api login(email: String): Member {
+  val member = Member.where(email: email).first()
+  member ?: throw InvalidCredentials
+  return member
+}
+
+api me: Member @auth {
+  val member = Member.find(my.id)
+  return member
+}

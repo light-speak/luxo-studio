@@ -1,0 +1,24 @@
+enum MemberRole {
+  OWNER
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+model Team @crud {
+  id:       Int @id @auto @serial
+  name:     String @unique @notBlank @varchar(100)
+  slug:     String @unique @notBlank @varchar(50) @filterable
+  members:  [Member]
+  projects: [Project]
+}
+
+model Member @crud @withAuth(stores: [id, teamId, role]) {
+  id:       Int @id @auto @serial
+  teamId:   Int @by(Team) @filterable
+  name:     String @notBlank @varchar(100)
+  email:    String @unique @email @filterable
+  password: String @hidden @hash
+  role:     MemberRole = MemberRole.VIEWER @filterable
+  avatar:   String?
+}
