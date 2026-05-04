@@ -3,10 +3,14 @@ enum TraceStatus {
   ERROR
 }
 
+extend Project {
+  traces: [Trace]
+}
+
 model Trace @crud {
   id:            Int @id @auto @serial
   projectId:     Int @by(Project) @filterable
-  gatewayId:     Int @by(Gateway) @filterable
+  gatewayId:     Int @filterable @index
   traceId:       String @unique @filterable
   apiName:       String @filterable
   duration:      Float @filterable @sortable
@@ -15,14 +19,14 @@ model Trace @crud {
   clientName:    String?
   clientVersion: String?
   timestamp:     DateTime @filterable @sortable
-  spans:         JSON
+  spans:         String?
 }
 
 model MetricBucket @crud {
   id:            Int @id @auto @serial
   projectId:     Int @by(Project) @filterable
-  gatewayId:     Int? @by(Gateway)
-  serviceNodeId: Int? @by(ServiceNode)
+  gatewayId:     Int? @index
+  serviceNodeId: Int? @index
   apiName:       String @filterable
   timestamp:     DateTime @filterable @sortable
   totalCount:    Int

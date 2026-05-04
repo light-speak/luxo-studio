@@ -5,7 +5,7 @@ import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
-import { Zap } from 'lucide-react'
+import { Logo } from '@/components/shared/logo'
 
 export function Login() {
   const { t } = useTranslation()
@@ -33,9 +33,7 @@ export function Login() {
   return (
     <Card className="w-full max-w-sm p-8">
       <div className="mb-8 flex flex-col items-center gap-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-muted">
-          <Zap className="h-6 w-6 text-accent" />
-        </div>
+        <Logo className="h-12" />
         <div className="text-center">
           <h1 className="text-lg font-semibold text-text">{t('auth.welcomeBack')}</h1>
           <p className="mt-1 text-sm text-text-muted">{t('auth.signInTo')}</p>

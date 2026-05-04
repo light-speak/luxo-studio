@@ -1,9 +1,8 @@
 // Proxy API call — Studio backend forwards request to target service
-// Returns the raw response + optional trace data
 api proxyCall(
   projectId: Int,
   apiName: String,
-  params: JSON?,
-  select: String?,
+  params: String?,
+  selectFields: String?,
   enableTrace: Boolean = false
-): JSON @auth @native
+): String @auth @native

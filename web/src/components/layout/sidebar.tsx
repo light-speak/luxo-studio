@@ -11,8 +11,8 @@ import {
   Settings,
   PanelLeftClose,
   PanelLeftOpen,
-  Zap,
 } from 'lucide-react'
+import { Logo } from '@/components/shared/logo'
 import { useState } from 'react'
 
 export function Sidebar() {
@@ -37,9 +37,9 @@ export function Sidebar() {
       )}
     >
       <div className="flex h-14 items-center gap-2.5 border-b border-border px-4">
-        <Zap className="h-5 w-5 text-accent shrink-0" />
+        <Logo className={collapsed ? 'h-5 w-5' : 'h-6'} />
         {!collapsed && (
-          <span className="text-sm font-semibold tracking-tight">Luxo Studio</span>
+          <span className="text-sm font-semibold tracking-tight">Studio</span>
         )}
       </div>
 

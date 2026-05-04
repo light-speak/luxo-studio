@@ -9,6 +9,10 @@ enum NodeStatus {
   ERROR
 }
 
+extend Team {
+  projects: [Project]
+}
+
 model Project @crud {
   id:                  Int @id @auto @serial
   teamId:              Int @by(Team) @filterable

@@ -10,7 +10,6 @@ model Team @crud {
   name:     String @unique @notBlank @varchar(100)
   slug:     String @unique @notBlank @varchar(50) @filterable
   members:  [Member]
-  projects: [Project]
 }
 
 model Member @crud @withAuth(stores: [id, teamId, role]) {

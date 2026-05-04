@@ -4,7 +4,8 @@ import { Card, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { StatusDot } from '@/components/shared/status-dot'
-import { Plus, Folder, Zap } from 'lucide-react'
+import { Plus, Folder } from 'lucide-react'
+import { Logo } from '@/components/shared/logo'
 
 const mockProjects = [
   { id: 1, name: 'E-Commerce API', mode: 'CLUSTER' as const, gateways: 2, services: 5, status: 'ONLINE' as const },
@@ -20,7 +21,7 @@ export function ProjectList() {
       <div className="mx-auto max-w-5xl">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Zap className="h-6 w-6 text-accent" />
+            <Logo className="h-7" />
             <h1 className="text-xl font-semibold text-text">{t('nav.projects')}</h1>
           </div>
           <Button size="sm">

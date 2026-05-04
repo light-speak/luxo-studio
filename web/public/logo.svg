@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" fill="none">
+  <defs>
+    <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2C3E50"/>
+      <stop offset="45%" stop-color="#8E44AD"/>
+      <stop offset="75%" stop-color="#E74C3C"/>
+      <stop offset="100%" stop-color="#F5A623"/>
+    </linearGradient>
+  </defs>
+  <path d="M14 8 L32 8 L25 28 L38 28 L12 68 L19 38 L7 38 Z" fill="#F5A623"/>
+  <text x="48" y="57" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="54" font-weight="700" letter-spacing="2" fill="url(#tg)">LUXO</text>
+</svg>

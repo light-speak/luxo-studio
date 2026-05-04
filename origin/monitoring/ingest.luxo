@@ -1,13 +1,8 @@
-// Trace batch ingest — target services push traces here
-api ingestTraces(projectId: Int, traces: JSON): Boolean @auth {
-  // @native — Go code handles batch insert + sampling
-  return true
-}
+// Trace batch ingest — target services push traces here (JSON string)
+api ingestTraces(projectId: Int, traces: String): Boolean @auth @native
 
-// Metric bucket ingest — target services push aggregated metrics
-api ingestMetrics(projectId: Int, buckets: JSON): Boolean @auth {
-  return true
-}
+// Metric bucket ingest — target services push aggregated metrics (JSON string)
+api ingestMetrics(projectId: Int, buckets: String): Boolean @auth @native
 
 // Node heartbeat — gateways and services report status
 api heartbeat(instanceId: String, status: String, memoryMB: Float, cpuPercent: Float): Boolean @auth @native
