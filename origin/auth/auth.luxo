@@ -8,8 +8,51 @@ error InvalidCredentials {
   message: "error.invalid_credentials"
 }
 
-api register(name: String, email: String, password: String, teamSlug: String): Member @native
+error AlreadySetup {
+  code: 409
+  message: "error.already_setup"
+}
 
-api login(email: String, password: String): Member @native
+api needsSetup: Boolean {
+  val count = Member.count()
+  return count == 0
+}
 
-api me: Member @auth
+api setup(teamName: String, name: String, email: String, password: String): Member {
+  Member.exists() !: throw AlreadySetup
+  val slug = teamName.lowercase().replace(" ", "-")
+  val team = Team.create(name: teamName, slug: slug)
+  val member = Member.create(
+    teamId: team.id,
+    name: name,
+    email: email,
+    password: password,
+    role: MemberRole.OWNER
+  )
+  return member
+}
+
+api register(name: String, email: String, password: String, teamSlug: String): Member {
+  val team = Team.where(it.slug == teamSlug).first()
+  team ?: throw error.NotFound
+  Member.where(it.email == email).exists() !: throw DuplicateEmail
+  val member = Member.create(
+    teamId: team.id,
+    name: name,
+    email: email,
+    password: password
+  )
+  return member
+}
+
+api login(email: String, password: String): Member {
+  val member = Member.where(it.email == email).first()
+  member ?: throw InvalidCredentials
+  member.verifyPassword(password) ?: throw InvalidCredentials
+  return member
+}
+
+api me: Member @auth {
+  val member = Member.find(my.id)
+  return member
+}
